@@ -20,9 +20,8 @@ wss.on('connection', (ws) => {
 
 wss.clients.forEach((client) => {
     client.send("Connected OK!");
+  console.log(client.send);
   });
-
-wss.clients.send("Connected OK!");
 
 setInterval(() => {
   wss.clients.forEach((client) => {
