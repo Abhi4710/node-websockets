@@ -18,8 +18,8 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-const send = wss.clients.forEach((client) => {
-    client.send('Connected OK!!');
+wss.clients.forEach((client) => {
+    client.send("Connected OK!");
   });
 
 setInterval(() => {
@@ -27,4 +27,4 @@ setInterval(() => {
     
     client.send(new Date().toTimeString());
   });
-}, 5000);
+}, 1000);
