@@ -22,9 +22,9 @@ wss.clients.forEach((client) => {
     client.send('Connected OK!!');
   });
 
-setInterval(() => {
-  wss.clients.forEach((client) => {
+// setInterval(() => {
+//   wss.clients.forEach((client) => {
     
-    client.send(new Date().toTimeString());
-  });
-}, 1000);
+//     client.send(new Date().toTimeString());
+//   });
+// }, 1000);
