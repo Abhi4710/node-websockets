@@ -1,15 +1,14 @@
 <html>
   <body>
     <p id='server-time'></p>
-    <label for="res">Response</label>
     <script>
       var HOST = location.origin.replace(/^http/, 'ws')
       var ws = new WebSocket(HOST);
       var el = document.getElementById('server-time');
-      ws.send('check!!!');
       ws.onmessage = function (event) {
         console.log(event.data);
         el.innerHTML = 'Server: ' + event.data;
+        ws.send('client msg!!')
       };
     </script>
   </body>
