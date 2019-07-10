@@ -15,14 +15,12 @@ const wss = new SocketServer({ server });
 
 wss.on('connection', (ws) => {
   console.log('Client connected');
-  ws.send('connected OK!')
+  ws.send('connected OK!');
   ws.on('close', () => console.log('Client disconnected'));
 });
 
-ws.on('message', (ws, message) => {
+ws.on('message', (message) => {
   console.log(message);
-  let msg = message;
-  ws.send('ok ' + msg);
 });
 
 
