@@ -5,10 +5,17 @@
       var HOST = location.origin.replace(/^http/, 'ws')
       var ws = new WebSocket(HOST);
       var el = document.getElementById('server-time');
-      ws.onmessage = function (event) {
+      ws.onmessage = function (event, ws) {
         console.log(event.data);
         el.innerHTML = 'Server: ' + event.data;
         ws.send('client msg!!')
+      };
+      ws.onopen = function (event) {
+        console.log('Connected');
+        el.innerHTML = 'Server: ' + event.data;
+      };
+        ws.onclose = function (event) {
+        console.log('DisConnected');
       };
     </script>
   </body>
