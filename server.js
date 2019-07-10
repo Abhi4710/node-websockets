@@ -20,8 +20,9 @@ wss.on('connection', (ws) => {
 
 wss.on('close', () => console.log('Client disconnected'));
 
-wss.on('message', (message) => {
+wss.on('message', (message, ws) => {
   console.log(message);
+  ws.send('Message Received');
 });
 
 
@@ -33,10 +34,10 @@ wss.on('message', (message) => {
 // wss.clients.forEach((client) => {
 //     client.send('Connected OK!');
 //   console.log(client.send('1234'));
-//   });
+// //   });
 
-setInterval(() => {
-  wss.clients.forEach((client) => {
-    client.send(new Date().toTimeString());
-  });
-}, 1000);
+// setInterval(() => {
+//   wss.clients.forEach((client) => {
+//     client.send(new Date().toTimeString());
+//   });
+// }, 1000);
