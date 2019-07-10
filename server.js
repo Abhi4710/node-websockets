@@ -19,6 +19,16 @@ wss.on('connection', (ws) => {
   ws.on('close', () => console.log('Client disconnected'));
 });
 
+wss.on('message', (message) => {
+  console.log(message);
+  let msg = message;
+  ws.send('ok' + msg);
+});
+
+// wss.clients.forEach((client) => {
+// //     client.send(new Date().toTimeString());
+// //   });
+
 // wss.clients.forEach((client) => {
 //     client.send('Connected OK!');
 //   console.log(client.send('1234'));
