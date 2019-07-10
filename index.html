@@ -2,17 +2,10 @@
   <body>
     <p id='server-time'></p>
     <label for="res">Response</label>
-<!--     <input type="text" id="res">
-    <button onclick="myFunction();">Send</button> -->
     <script>
       var HOST = location.origin.replace(/^http/, 'ws')
       var ws = new WebSocket(HOST);
       var el = document.getElementById('server-time');
-//       function myFunction(){
-//         var x = document.getElementById('res').value;
-//         ws.send(x.toString());
-//         console.log('sent msg');
-//       };
       ws.send('check!!!');
       ws.onmessage = function (event) {
         console.log(event.data);
