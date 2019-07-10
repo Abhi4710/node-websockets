@@ -22,7 +22,7 @@ wss.on('connection', (ws) => {
 wss.on('message', (message) => {
   console.log(message);
   let msg = message;
-  ws.send('ok' + msg);
+  ws.send('ok ' + msg);
 });
 
 // wss.clients.forEach((client) => {
