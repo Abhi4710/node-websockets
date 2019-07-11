@@ -1,6 +1,6 @@
 'use strict';
 
-const res_dict = {"hello": "Hi", "name":"Abhi", "server":"websocket", "hi": "hello", "version": "1.0",  '{"state": "ON"}': {"query": "cmd", "state": "on"}, '{"state": "OFF"}': {"query": "cmd", "state": "off"}}
+const res_dict = {"hello": "Hi", "name":"Abhi", "server":"websocket", "hi": "hello", "version": "1.0",  '{"state":"ON"}': {"query": "cmd", "state": "on"}, '{"state":"OFF"}': {"query": "cmd", "state": "off"}}
 
 const express = require('express');
 const SocketServer = require('ws').Server;
@@ -24,11 +24,11 @@ wss.on('connection', function connection(ws) {
     console.log('received: %s', message);
     let res = res_dict[message]
     // ws.send(res);
-    if (message == '{"state": "ON"}'){
-      res = res_dict['{"state": "ON"}']
+    if (message == '{"state":"ON"}'){
+      res = res_dict['{"state":"ON"}']
     }
-    if (message == '{"state": "OFF"}'){
-      res = res_dict['{"state": "OFF"}']
+    if (message == '{"state":"OFF"}'){
+      res = res_dict['{"state":"OFF"}']
     }
     if (message != ''){
     myfunction(res)
