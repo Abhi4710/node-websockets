@@ -24,7 +24,9 @@ wss.on('connection', function connection(ws) {
     console.log('received: %s', message);
     let res = res_dict[message]
     // ws.send(res);
-    myfunction(res)
+    if (res != ''){
+    myfunction(res);
+    };
   });
   ws.on('close', () => console.log('Client disconnected'));
 });
