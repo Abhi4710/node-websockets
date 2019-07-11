@@ -31,7 +31,7 @@ wss.on('connection', function connection(ws) {
 
 function myfunction(res) {
   wss.clients.forEach((client) => {
-    client.send(res);
+    client.send(JSON.stringify(res));
   // console.log(client.send('1234'));
   });
 };
