@@ -23,10 +23,18 @@ wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
     console.log('received: %s', message);
     let res = res_dict[message]
-    ws.send(res);
+    // ws.send(res);
+    myfunction(res)
   });
   ws.on('close', () => console.log('Client disconnected'));
 });
+
+function myfunction(res) {
+  wss.clients.forEach((client) => {
+    client.send(res);
+  // console.log(client.send('1234'));
+  });
+};
 
 
 
