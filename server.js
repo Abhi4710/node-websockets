@@ -24,7 +24,7 @@ wss.on('connection', function connection(ws) {
     console.log('received: %s', message);
     let res = res_dict[message]
     // ws.send(res);
-    if (res != ''){
+    if (message != ''){
     myfunction(res);
     };
   });
