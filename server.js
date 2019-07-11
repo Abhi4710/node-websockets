@@ -1,6 +1,6 @@
 'use strict';
 
-const res_dict = {"hello": "Hi", "name":"Abhi", "server":"websocket", "hi": "hello", "version": "1.0", "on": {"query": "cmd", "state": "on"}, "off": {"query": "cmd", "state": "off"}}
+const res_dict = {"hello": "Hi", "name":"Abhi", "server":"websocket", "hi": "hello", "version": "1.0", "on": "{"query": "cmd", "state": "on"}", "off": "{"query": "cmd", "state": "off"}"}
 
 const express = require('express');
 const SocketServer = require('ws').Server;
